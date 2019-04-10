@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbRI.PsbEquipService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+   <alias>
+     <typeAlias alias="PsbEquip" type="IEMS.JHWMS.Entity.PsbEquip, IEMS.JHWMS.Entity" />
+   </alias>
+   
+  <!--结果集映射 resultMap-->
+  <resultMap id="R_PsbEquip" class="PsbEquip">
+    <result property="EquipNo" column="Equip_no"/>
+    <result property="EquipName" column="Equip_Name"/>
+    <result property="BindProductLine" column="Bind_product_line"/>
+    <result property="IsEnabled" column="Is_Enabled"/>
+  </resultMap>
+  <!--参数集映射 parameterMap-->
+  <parameterMap id="P_PsbEquip" class="PsbEquip">
+    <parameter property="EquipNo" column="EquipNo"/>
+    <parameter property="EquipName" column="EquipName"/>
+    <parameter property="BindProductLine" column="BindProductLine"/>
+    <parameter property="IsEnabled" column="IsEnabled"/>
+  </parameterMap>
+
+   <!--本文件为自动生成，不允许进行修改-->
+   <statements>
+    <!--查询数据-->
+    <sql id="includeSelect">
+      <![CDATA[SELECT * FROM PSB_EQUIP ]]>
+    </sql>
+    <!--查询条件-->
+    <sql id="includeWhere">
+	  <dynamic prepend="WHERE">
+        <isNotNull property="where.EquipNo" prepend="AND">
+          <isEqual property="where.EquipNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Equip_no IS NULL]]>
+          </isEqual>
+          <isEqual property="where.EquipNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Equip_no IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.EquipNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.EquipNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Equip_no = #where.EquipNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.EquipName" prepend="AND">
+          <isEqual property="where.EquipName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Equip_Name IS NULL]]>
+          </isEqual>
+          <isEqual property="where.EquipName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Equip_Name IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.EquipName" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.EquipName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Equip_Name = #where.EquipName#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.BindProductLine" prepend="AND">
+          <isEqual property="where.BindProductLine" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Bind_product_line IS NULL]]>
+          </isEqual>
+          <isEqual property="where.BindProductLine" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Bind_product_line IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.BindProductLine" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.BindProductLine" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[Bind_product_line = #where.BindProductLine#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.IsEnabled" prepend="AND">
+          <isEqual property="where.IsEnabled" compareValue="-1147483648">
+            <![CDATA[Is_Enabled IS NULL]]>
+          </isEqual>
+          <isEqual property="where.IsEnabled" compareValue="-1147483647">
+            <![CDATA[Is_Enabled IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.IsEnabled" compareValue="-1147483648">
+          <isNotEqual property="where.IsEnabled" compareValue="-1147483647">
+            <![CDATA[Is_Enabled = #where.IsEnabled#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--排序条件-->
+    <sql id="includeOrderString">
+      <isNotNull property="OrderString" prepend=" ">
+        ORDER BY $OrderString$
+      </isNotNull>
+    </sql>
+    <!--添加数据-->
+   <sql id="includeInsert">
+      <![CDATA[INSERT INTO PSB_EQUIP]]>
+       <dynamic prepend="(">
+        <isNotNull property="EquipNo" prepend=",">Equip_no</isNotNull>
+        <isNotNull property="EquipName" prepend=",">Equip_Name</isNotNull>
+        <isNotNull property="BindProductLine" prepend=",">Bind_product_line</isNotNull>
+        <isNotNull property="IsEnabled" prepend=",">Is_Enabled</isNotNull>
+       </dynamic>
+       <dynamic prepend=") VALUES (">
+        <isNotNull property="EquipNo" prepend=",">#EquipNo#</isNotNull>
+        <isNotNull property="EquipName" prepend=",">#EquipName#</isNotNull>
+        <isNotNull property="BindProductLine" prepend=",">#BindProductLine#</isNotNull>
+        <isNotNull property="IsEnabled" prepend=",">#IsEnabled#</isNotNull>
+       </dynamic>
+       <![CDATA[)]]>
+    </sql>
+    <!--修改数据-->
+    <sql id="includeUpdate">
+      <![CDATA[UPDATE PSB_EQUIP]]>
+       <dynamic prepend="SET">
+        <isNotNull property="update.EquipNo" prepend=",">
+          <isEqual property="update.EquipNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Equip_no = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.EquipNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[Equip_no = #update.EquipNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.EquipName" prepend=",">
+          <isEqual property="update.EquipName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Equip_Name = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.EquipName" compareValue="STRING_NULL_VALUE">
+          <![CDATA[Equip_Name = #update.EquipName#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.BindProductLine" prepend=",">
+          <isEqual property="update.BindProductLine" compareValue="STRING_NULL_VALUE">
+            <![CDATA[Bind_product_line = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.BindProductLine" compareValue="STRING_NULL_VALUE">
+          <![CDATA[Bind_product_line = #update.BindProductLine#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.IsEnabled" prepend=",">
+          <isEqual property="update.IsEnabled" compareValue="-1147483648">
+            <![CDATA[Is_Enabled = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.IsEnabled" compareValue="-1147483648">
+          <![CDATA[Is_Enabled = #update.IsEnabled#]]>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--删除数据-->
+    <sql id="includeDelete">
+      <![CDATA[DELETE FROM PSB_EQUIP]]>
+    </sql>
+
+	
+    <!--增删改查配置信息-->
+    <!--指定条件的查询-->
+    <select id="GetEntityList" parameterClass="map" resultMap="R_PsbEquip">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--指定条件的查询-->
+    <select id="GetEntityTable" parameterClass="map" resultClass="row">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--获取某个属性（数据列）的最大值-->
+    <select id="GetColumnMaxValue" parameterClass="map" resultClass="map">
+      <![CDATA[SELECT]]>
+      <isPropertyAvailable property="ColumnName" prepend=" ">
+      <![CDATA[MAX($ColumnName$)]]>
+      </isPropertyAvailable>
+      <![CDATA[FROM PSB_EQUIP]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--获取数据条数-->
+    <select id="GetRowCount" parameterClass="map" resultClass="int">
+      <![CDATA[SELECT COUNT(*) FROM PSB_EQUIP]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--添加新记录-->
+    <statement id="Insert" parameterMap="P_PsbEquip" resultClass="int">
+      <include refid="includeInsert"/>
+    </statement>
+    <!--更新记录-->
+    <update id="Update" parameterClass="map">
+      <include refid="includeUpdate"/>
+      <include refid="includeWhere"/>
+    </update>
+    <!--删除对象对应的记录-->
+    <delete id="Delete" parameterClass="map">
+      <include refid="includeDelete"/>
+      <include refid="includeWhere"/>
+    </delete>
+  </statements>
+</sqlMap>

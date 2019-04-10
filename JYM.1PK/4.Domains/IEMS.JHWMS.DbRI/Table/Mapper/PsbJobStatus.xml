@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbRI.PsbJobStatusService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+   <alias>
+     <typeAlias alias="PsbJobStatus" type="IEMS.JHWMS.Entity.PsbJobStatus, IEMS.JHWMS.Entity" />
+   </alias>
+   
+  <!--结果集映射 resultMap-->
+  <resultMap id="R_PsbJobStatus" class="PsbJobStatus">
+    <result property="JobNo" column="JOB_NO"/>
+    <result property="JobName" column="JOB_NAME"/>
+    <result property="Interval" column="INTERVAL"/>
+    <result property="JobStatus" column="JOB_STATUS"/>
+    <result property="ExcuteResult" column="EXCUTE_RESULT"/>
+    <result property="UsedFlag" column="USED_FLAG"/>
+    <result property="LastExcuteTime" column="LAST_EXCUTE_TIME"/>
+    <result property="MaxExcuteTime" column="MAX_EXCUTE_TIME"/>
+    <result property="MinExcuteTime" column="MIN_EXCUTE_TIME"/>
+    <result property="AvgExcuteTime" column="AVG_EXCUTE_TIME"/>
+    <result property="TotalExcuteTime" column="TOTAL_EXCUTE_TIME"/>
+    <result property="ExcuteCount" column="EXCUTE_COUNT"/>
+    <result property="SpName" column="SP_NAME"/>
+  </resultMap>
+  <!--参数集映射 parameterMap-->
+  <parameterMap id="P_PsbJobStatus" class="PsbJobStatus">
+    <parameter property="JobNo" column="JobNo"/>
+    <parameter property="JobName" column="JobName"/>
+    <parameter property="Interval" column="Interval"/>
+    <parameter property="JobStatus" column="JobStatus"/>
+    <parameter property="ExcuteResult" column="ExcuteResult"/>
+    <parameter property="UsedFlag" column="UsedFlag"/>
+    <parameter property="LastExcuteTime" column="LastExcuteTime"/>
+    <parameter property="MaxExcuteTime" column="MaxExcuteTime"/>
+    <parameter property="MinExcuteTime" column="MinExcuteTime"/>
+    <parameter property="AvgExcuteTime" column="AvgExcuteTime"/>
+    <parameter property="TotalExcuteTime" column="TotalExcuteTime"/>
+    <parameter property="ExcuteCount" column="ExcuteCount"/>
+    <parameter property="SpName" column="SpName"/>
+  </parameterMap>
+
+   <!--本文件为自动生成，不允许进行修改-->
+   <statements>
+    <!--查询数据-->
+    <sql id="includeSelect">
+      <![CDATA[SELECT * FROM PSB_JOB_STATUS ]]>
+    </sql>
+    <!--查询条件-->
+    <sql id="includeWhere">
+	  <dynamic prepend="WHERE">
+        <isNotNull property="where.Id" prepend="AND">
+          <isEqual property="where.Id" compareValue="-1147483648">
+            <![CDATA[ID IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Id" compareValue="-1147483647">
+            <![CDATA[ID IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Id" compareValue="-1147483648">
+          <isNotEqual property="where.Id" compareValue="-1147483647">
+            <![CDATA[ID = #where.Id#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.JobNo" prepend="AND">
+          <isEqual property="where.JobNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[JOB_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.JobNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[JOB_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.JobNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.JobNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[JOB_NO = #where.JobNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.JobName" prepend="AND">
+          <isEqual property="where.JobName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[JOB_NAME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.JobName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[JOB_NAME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.JobName" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.JobName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[JOB_NAME = #where.JobName#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Interval" prepend="AND">
+          <isEqual property="where.Interval" compareValue="-1147483648">
+            <![CDATA[INTERVAL IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Interval" compareValue="-1147483647">
+            <![CDATA[INTERVAL IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Interval" compareValue="-1147483648">
+          <isNotEqual property="where.Interval" compareValue="-1147483647">
+            <![CDATA[INTERVAL = #where.Interval#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.JobStatus" prepend="AND">
+          <isEqual property="where.JobStatus" compareValue="-1147483648">
+            <![CDATA[JOB_STATUS IS NULL]]>
+          </isEqual>
+          <isEqual property="where.JobStatus" compareValue="-1147483647">
+            <![CDATA[JOB_STATUS IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.JobStatus" compareValue="-1147483648">
+          <isNotEqual property="where.JobStatus" compareValue="-1147483647">
+            <![CDATA[JOB_STATUS = #where.JobStatus#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ExcuteResult" prepend="AND">
+          <isEqual property="where.ExcuteResult" compareValue="STRING_NULL_VALUE">
+            <![CDATA[EXCUTE_RESULT IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ExcuteResult" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[EXCUTE_RESULT IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ExcuteResult" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.ExcuteResult" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[EXCUTE_RESULT = #where.ExcuteResult#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.UsedFlag" prepend="AND">
+          <isEqual property="where.UsedFlag" compareValue="-1147483648">
+            <![CDATA[USED_FLAG IS NULL]]>
+          </isEqual>
+          <isEqual property="where.UsedFlag" compareValue="-1147483647">
+            <![CDATA[USED_FLAG IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.UsedFlag" compareValue="-1147483648">
+          <isNotEqual property="where.UsedFlag" compareValue="-1147483647">
+            <![CDATA[USED_FLAG = #where.UsedFlag#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.LastExcuteTime" prepend="AND">
+          <isEqual property="where.LastExcuteTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[LAST_EXCUTE_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.LastExcuteTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[LAST_EXCUTE_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.LastExcuteTime" compareValue="1234/12/23 0:00:00">
+          <isNotEqual property="where.LastExcuteTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[LAST_EXCUTE_TIME = #where.LastExcuteTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.MaxExcuteTime" prepend="AND">
+          <isEqual property="where.MaxExcuteTime" compareValue="-1147483648">
+            <![CDATA[MAX_EXCUTE_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.MaxExcuteTime" compareValue="-1147483647">
+            <![CDATA[MAX_EXCUTE_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.MaxExcuteTime" compareValue="-1147483648">
+          <isNotEqual property="where.MaxExcuteTime" compareValue="-1147483647">
+            <![CDATA[MAX_EXCUTE_TIME = #where.MaxExcuteTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.MinExcuteTime" prepend="AND">
+          <isEqual property="where.MinExcuteTime" compareValue="-1147483648">
+            <![CDATA[MIN_EXCUTE_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.MinExcuteTime" compareValue="-1147483647">
+            <![CDATA[MIN_EXCUTE_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.MinExcuteTime" compareValue="-1147483648">
+          <isNotEqual property="where.MinExcuteTime" compareValue="-1147483647">
+            <![CDATA[MIN_EXCUTE_TIME = #where.MinExcuteTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.AvgExcuteTime" prepend="AND">
+          <isEqual property="where.AvgExcuteTime" compareValue="-1147483648">
+            <![CDATA[AVG_EXCUTE_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.AvgExcuteTime" compareValue="-1147483647">
+            <![CDATA[AVG_EXCUTE_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.AvgExcuteTime" compareValue="-1147483648">
+          <isNotEqual property="where.AvgExcuteTime" compareValue="-1147483647">
+            <![CDATA[AVG_EXCUTE_TIME = #where.AvgExcuteTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.TotalExcuteTime" prepend="AND">
+          <isEqual property="where.TotalExcuteTime" compareValue="-1147483648">
+            <![CDATA[TOTAL_EXCUTE_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.TotalExcuteTime" compareValue="-1147483647">
+            <![CDATA[TOTAL_EXCUTE_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.TotalExcuteTime" compareValue="-1147483648">
+          <isNotEqual property="where.TotalExcuteTime" compareValue="-1147483647">
+            <![CDATA[TOTAL_EXCUTE_TIME = #where.TotalExcuteTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ExcuteCount" prepend="AND">
+          <isEqual property="where.ExcuteCount" compareValue="-1147483648">
+            <![CDATA[EXCUTE_COUNT IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ExcuteCount" compareValue="-1147483647">
+            <![CDATA[EXCUTE_COUNT IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ExcuteCount" compareValue="-1147483648">
+          <isNotEqual property="where.ExcuteCount" compareValue="-1147483647">
+            <![CDATA[EXCUTE_COUNT = #where.ExcuteCount#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.SpName" prepend="AND">
+          <isEqual property="where.SpName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[SP_NAME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.SpName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[SP_NAME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.SpName" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.SpName" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[SP_NAME = #where.SpName#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--排序条件-->
+    <sql id="includeOrderString">
+      <isNotNull property="OrderString" prepend=" ">
+        ORDER BY $OrderString$
+      </isNotNull>
+    </sql>
+    <!--添加数据-->
+   <sql id="includeInsert">
+      <![CDATA[INSERT INTO PSB_JOB_STATUS]]>
+       <dynamic prepend="(">
+        <isNotNull property="Id" prepend=",">ID</isNotNull>
+        <isNotNull property="JobNo" prepend=",">JOB_NO</isNotNull>
+        <isNotNull property="JobName" prepend=",">JOB_NAME</isNotNull>
+        <isNotNull property="Interval" prepend=",">INTERVAL</isNotNull>
+        <isNotNull property="JobStatus" prepend=",">JOB_STATUS</isNotNull>
+        <isNotNull property="ExcuteResult" prepend=",">EXCUTE_RESULT</isNotNull>
+        <isNotNull property="UsedFlag" prepend=",">USED_FLAG</isNotNull>
+        <isNotNull property="LastExcuteTime" prepend=",">LAST_EXCUTE_TIME</isNotNull>
+        <isNotNull property="MaxExcuteTime" prepend=",">MAX_EXCUTE_TIME</isNotNull>
+        <isNotNull property="MinExcuteTime" prepend=",">MIN_EXCUTE_TIME</isNotNull>
+        <isNotNull property="AvgExcuteTime" prepend=",">AVG_EXCUTE_TIME</isNotNull>
+        <isNotNull property="TotalExcuteTime" prepend=",">TOTAL_EXCUTE_TIME</isNotNull>
+        <isNotNull property="ExcuteCount" prepend=",">EXCUTE_COUNT</isNotNull>
+        <isNotNull property="SpName" prepend=",">SP_NAME</isNotNull>
+       </dynamic>
+       <dynamic prepend=") VALUES (">
+        <isNotNull property="Id" prepend=",">#Id#</isNotNull>
+        <isNotNull property="JobNo" prepend=",">#JobNo#</isNotNull>
+        <isNotNull property="JobName" prepend=",">#JobName#</isNotNull>
+        <isNotNull property="Interval" prepend=",">#Interval#</isNotNull>
+        <isNotNull property="JobStatus" prepend=",">#JobStatus#</isNotNull>
+        <isNotNull property="ExcuteResult" prepend=",">#ExcuteResult#</isNotNull>
+        <isNotNull property="UsedFlag" prepend=",">#UsedFlag#</isNotNull>
+        <isNotNull property="LastExcuteTime" prepend=",">#LastExcuteTime#</isNotNull>
+        <isNotNull property="MaxExcuteTime" prepend=",">#MaxExcuteTime#</isNotNull>
+        <isNotNull property="MinExcuteTime" prepend=",">#MinExcuteTime#</isNotNull>
+        <isNotNull property="AvgExcuteTime" prepend=",">#AvgExcuteTime#</isNotNull>
+        <isNotNull property="TotalExcuteTime" prepend=",">#TotalExcuteTime#</isNotNull>
+        <isNotNull property="ExcuteCount" prepend=",">#ExcuteCount#</isNotNull>
+        <isNotNull property="SpName" prepend=",">#SpName#</isNotNull>
+       </dynamic>
+       <![CDATA[)]]>
+    </sql>
+    <!--修改数据-->
+    <sql id="includeUpdate">
+      <![CDATA[UPDATE PSB_JOB_STATUS]]>
+       <dynamic prepend="SET">
+        <isNotNull property="update.JobNo" prepend=",">
+          <isEqual property="update.JobNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[JOB_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.JobNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[JOB_NO = #update.JobNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.JobName" prepend=",">
+          <isEqual property="update.JobName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[JOB_NAME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.JobName" compareValue="STRING_NULL_VALUE">
+          <![CDATA[JOB_NAME = #update.JobName#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Interval" prepend=",">
+          <isEqual property="update.Interval" compareValue="-1147483648">
+            <![CDATA[INTERVAL = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Interval" compareValue="-1147483648">
+          <![CDATA[INTERVAL = #update.Interval#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.JobStatus" prepend=",">
+          <isEqual property="update.JobStatus" compareValue="-1147483648">
+            <![CDATA[JOB_STATUS = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.JobStatus" compareValue="-1147483648">
+          <![CDATA[JOB_STATUS = #update.JobStatus#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.ExcuteResult" prepend=",">
+          <isEqual property="update.ExcuteResult" compareValue="STRING_NULL_VALUE">
+            <![CDATA[EXCUTE_RESULT = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ExcuteResult" compareValue="STRING_NULL_VALUE">
+          <![CDATA[EXCUTE_RESULT = #update.ExcuteResult#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.UsedFlag" prepend=",">
+          <isEqual property="update.UsedFlag" compareValue="-1147483648">
+            <![CDATA[USED_FLAG = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.UsedFlag" compareValue="-1147483648">
+          <![CDATA[USED_FLAG = #update.UsedFlag#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.LastExcuteTime" prepend=",">
+          <isEqual property="update.LastExcuteTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[LAST_EXCUTE_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.LastExcuteTime" compareValue="1234/12/23 0:00:00">
+          <![CDATA[LAST_EXCUTE_TIME = #update.LastExcuteTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.MaxExcuteTime" prepend=",">
+          <isEqual property="update.MaxExcuteTime" compareValue="-1147483648">
+            <![CDATA[MAX_EXCUTE_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.MaxExcuteTime" compareValue="-1147483648">
+          <![CDATA[MAX_EXCUTE_TIME = #update.MaxExcuteTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.MinExcuteTime" prepend=",">
+          <isEqual property="update.MinExcuteTime" compareValue="-1147483648">
+            <![CDATA[MIN_EXCUTE_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.MinExcuteTime" compareValue="-1147483648">
+          <![CDATA[MIN_EXCUTE_TIME = #update.MinExcuteTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.AvgExcuteTime" prepend=",">
+          <isEqual property="update.AvgExcuteTime" compareValue="-1147483648">
+            <![CDATA[AVG_EXCUTE_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.AvgExcuteTime" compareValue="-1147483648">
+          <![CDATA[AVG_EXCUTE_TIME = #update.AvgExcuteTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.TotalExcuteTime" prepend=",">
+          <isEqual property="update.TotalExcuteTime" compareValue="-1147483648">
+            <![CDATA[TOTAL_EXCUTE_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.TotalExcuteTime" compareValue="-1147483648">
+          <![CDATA[TOTAL_EXCUTE_TIME = #update.TotalExcuteTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.ExcuteCount" prepend=",">
+          <isEqual property="update.ExcuteCount" compareValue="-1147483648">
+            <![CDATA[EXCUTE_COUNT = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ExcuteCount" compareValue="-1147483648">
+          <![CDATA[EXCUTE_COUNT = #update.ExcuteCount#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.SpName" prepend=",">
+          <isEqual property="update.SpName" compareValue="STRING_NULL_VALUE">
+            <![CDATA[SP_NAME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.SpName" compareValue="STRING_NULL_VALUE">
+          <![CDATA[SP_NAME = #update.SpName#]]>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--删除数据-->
+    <sql id="includeDelete">
+      <![CDATA[DELETE FROM PSB_JOB_STATUS]]>
+    </sql>
+
+	
+    <!--增删改查配置信息-->
+    <!--指定条件的查询-->
+    <select id="GetEntityList" parameterClass="map" resultMap="R_PsbJobStatus">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--指定条件的查询-->
+    <select id="GetEntityTable" parameterClass="map" resultClass="row">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--获取某个属性（数据列）的最大值-->
+    <select id="GetColumnMaxValue" parameterClass="map" resultClass="map">
+      <![CDATA[SELECT]]>
+      <isPropertyAvailable property="ColumnName" prepend=" ">
+      <![CDATA[MAX($ColumnName$)]]>
+      </isPropertyAvailable>
+      <![CDATA[FROM PSB_JOB_STATUS]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--获取数据条数-->
+    <select id="GetRowCount" parameterClass="map" resultClass="int">
+      <![CDATA[SELECT COUNT(*) FROM PSB_JOB_STATUS]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--添加新记录-->
+    <statement id="Insert" parameterMap="P_PsbJobStatus" resultClass="int">
+      <include refid="includeInsert"/>
+    </statement>
+    <!--更新记录-->
+    <update id="Update" parameterClass="map">
+      <include refid="includeUpdate"/>
+      <include refid="includeWhere"/>
+    </update>
+    <!--删除对象对应的记录-->
+    <delete id="Delete" parameterClass="map">
+      <include refid="includeDelete"/>
+      <include refid="includeWhere"/>
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<McUIConfig>
+  <McUI name="BinStatistics"        uri="@McUI\BinStatistics.xml"/>
+  <McUI name="BinData"              uri="@McUI\BinData.xml"/>
+  <McUI name="InOutBinHistory"      uri="@McUI\InOutBinHistory.xml"/>
+  <McUI name="Z40CheckLog"      uri="@McUI\Z40CheckLog.xml"/>
+</McUIConfig>
+

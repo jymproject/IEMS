@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbCI.ProductService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<statements>
+  <select id="GetProductData" parameterClass="map" resultClass="Row">
+    <![CDATA[
+  SELECT TOP 1000 t.OBJID
+      ,EQUIP_NO
+      ,BATCH_NO
+      ,t.SHIFT_ID
+      ,PRODUCT_DATE
+      ,PRODUCT_NAME
+      ,PACKAGE_STYLE
+      ,STANDARD_WEIGHT
+      ,ERROR_WEIGHT
+      ,SRM_NAME
+      ,LETTER_NO
+      ,PRODUCT_BATCH_NO
+      ,PRODUCT_QTY
+      ,ORDER_QTY
+      ,SHIPMENTS_DATE
+      ,SHIPMENTS_DESC
+      ,SRM_DESC
+      ,WH_NO
+      ,t.DELETE_FLAG
+      ,t1.USER_NAME  RECORD_USER_ID
+      ,t.RECORD_TIME
+      ,SLMS_FLAG
+      ,READTIME
+      ,t1.USER_NAME READ_USER_ID
+      ,READ_TIME
+        ,MATER_NO
+	  ,PRODUCT_ORGANIZATION
+  FROM [JYM_DBS].[dbo].[PSB_PRODUCT_PLAN] t left join [JYM_DBS].[dbo].[SSB_USER] t1 on t.READ_USER_ID = t1.OBJID  where 1=1
+        ]]>
+    <dynamic prepend="">
+      <isNotNull property="where.EQUIP_NO" prepend="AND">
+        <![CDATA[ t.EQUIP_NO = #where.EQUIP_NO#]]>
+      </isNotNull>
+      <isNotNull property="where.SHIFT_ID" prepend="AND">
+        <![CDATA[ t.SHIFT_ID like '%'+#where.SHIFT_ID#+'%']]>
+      </isNotNull>
+    </dynamic>
+    <isNotNull property="OrderString" prepend=" ">
+      ORDER BY $OrderString$
+    </isNotNull>
+  </select>
+  <!--<select id="GetCrnForkErrorStatus" parameterClass="map" resultClass="Row">
+    <![CDATA[
+        SELECT FS.CRN_NO,
+              FS.CRN_FORK_NO,
+              FS.TASK_NO,
+              CASE FS.TASK_TYPE WHEN 'I' THEN '入库' WHEN 'M' THEN '移库' ELSE '出库' END AS TASK_TYPE,
+                CASE WHEN T2.ERR_NAME IS NULL THEN '正常' ELSE T2.ERR_NAME END AS FAULT_NAME,
+              FS.FROM_BIN,FS.TO_BIN,
+			  FS.ACTPOSX,FS.ACTPOSY,
+              FS.FIP_FAULT_NO,
+              FS.FIP_DATE,
+              FS.FIP_HANDLE_RESULT,
+              CASE FS.FIP_FLAG WHEN 0 THEN '正常' WHEN 1 THEN '待确认' WHEN 2 THEN '已确认' WHEN 3 THEN '已处理' END AS FIP_FLAG
+        FROM PEM_CRN_FORK_STATUS FS 
+        LEFT JOIN PSB_CRN_ERR T2 ON FS.FAULTNO = T2.ERR_NO
+       ORDER BY FS.CRN_NO,FS.CRN_FORK_NO
+      ]]>
+  </select>-->
+  <!--<procedure id="pack_3010_system_operation" parameterClass = "map" resultClass="string">
+    pack_3010_system_operation.manual_task
+    @{ILocNo, column=I_LOC_NO}
+    @{IPalletNo, column=I_PALLET_NO}
+  </procedure>-->
+  </statements>
+</sqlMap>

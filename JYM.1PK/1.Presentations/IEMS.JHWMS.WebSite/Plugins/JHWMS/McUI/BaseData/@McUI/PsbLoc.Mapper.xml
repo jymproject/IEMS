@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.Frame.DbCI.McUIService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+   <statements>
+    <select id="Select@PsbLoc" parameterClass="map" resultClass="row">
+      <![CDATA[ 
+           SELECT [LOC_NO]
+            ,[LOC_PLC_NO]
+            ,[LOC_TYPE_NO]
+            ,[LOC_NAME]
+            ,[LOC_INDEX]
+            ,[MAX_BUFFER]
+            ,[LOC_GROUP_NO]
+            ,[LOC_PRIORITY]
+            ,[LOC_ENABLE]
+            ,[AREA_NO]
+            ,[TRANSFER_NO]
+            ,[LIMIT_CMD_QTY]
+            ,[WH_NO]
+            ,[LOC_MES_NO]
+            ,[LOC_AGV_NO]
+            ,[BPALLET_REQUEST]
+            ,[BIND_ELOC_NO]
+            ,[LOCK_REQUEST_LOC]
+            ,[PAREA_NO]
+            ,[BIND_PALLET_TYPE]
+        FROM [dbo].[PSB_LOC] T
+      ]]>
+      <dynamic prepend="WHERE">
+         <isNotNull property="where.LOC_NO" prepend="AND">
+           <![CDATA[T.LOC_NO LIKE '%'+#where.LOC_NO#+'%']]>
+         </isNotNull>
+         <isNotNull property="where.LOC_NAME" prepend="AND">
+           <![CDATA[T.LOC_NAME LIKE '%'+#where.LOC_NAME#+'%']]>
+         </isNotNull>
+       </dynamic>
+       ORDER BY LOC_NO
+     </select>
+     <select id="Select@PsbLoc@MainDetail" parameterClass="map" resultClass="row">
+       <![CDATA[ 
+       SELECT * FROM PSB_LOC T
+      ]]>
+       <dynamic prepend="WHERE">
+         <isNotNull property="where.LOC_NO" prepend = "AND">
+           <![CDATA[T.LOC_NO = #where.LOC_NO#]]>
+         </isNotNull>
+       </dynamic>
+     </select>
+  </statements>
+</sqlMap>

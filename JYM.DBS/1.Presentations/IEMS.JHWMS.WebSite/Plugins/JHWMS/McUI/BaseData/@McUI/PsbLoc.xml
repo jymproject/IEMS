@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UiConfig>
+  <Captions>
+    <Caption Name="LOC_NO" Value="站台编码" ></Caption>
+    <Caption Name="LOC_PLC_NO" Value="站台PLC编码" ></Caption>
+    <Caption Name="LOC_TYPE_NO" Value="站台类型编码" ></Caption>
+    <Caption Name="LOC_NAME" Value="站台名称" ></Caption>
+    <Caption Name="LOC_INDEX" Value="站台顺序号" ></Caption>
+    <Caption Name="MAX_BUFFER" Value="缓存区大小" ></Caption>
+    <Caption Name="LOC_GROUP_NO" Value="站台组" ></Caption>
+    <Caption Name="LOC_PRIORITY" Value="优先级" ></Caption>
+    <Caption Name="LOC_ENABLE" Value="可用状态" ></Caption>
+    <Caption Name="AREA_NO" Value="区域" ></Caption>
+    <Caption Name="TRANSFER_NO" Value="输送设备号" ></Caption>
+    <Caption Name="LIMIT_CMD_QTY" Value="限定指令数量" ></Caption>
+    <Caption Name="WH_NO" Value="归属仓库" ></Caption>
+    <Caption Name="LOC_MES_NO" Value="对应MES站台编码" ></Caption>
+    <Caption Name="LOC_AGV_NO" Value="对应AGV站台编码" ></Caption>
+    <Caption Name="BPALLET_REQUEST" Value="是否自动拉动空工装" ></Caption>
+    <Caption Name="BIND_ELOC_NO" Value="绑定目的站台编码" ></Caption>
+    <Caption Name="LOCK_REQUEST_LOC" Value="是否限定请求站台" ></Caption>
+    <Caption Name="PAREA_NO" Value="父级编码" ></Caption>
+    <Caption Name="BIND_PALLET_TYPE" Value="绑定工装类型" ></Caption>
+  </Captions>
+  <WebPage Title="站台信息查询">
+  </WebPage>
+  <Select>
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="LOC_NO" WIDTH="120"></ParamField>
+        <ParamField FieldName="LOC_NAME" WIDTH="120"></ParamField>
+      </ParamFields>
+    </ParamPanel>
+    <MainGrid PageSize ="50">
+      <GridColumns>
+        <GridColumn ColumnName="LOC_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_PLC_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_TYPE_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_NAME" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_INDEX" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="MAX_BUFFER" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_GROUP_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_PRIORITY" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_ENABLE" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="AREA_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="TRANSFER_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LIMIT_CMD_QTY" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="WH_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_MES_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOC_AGV_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="BPALLET_REQUEST" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="BIND_ELOC_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="LOCK_REQUEST_LOC" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="PAREA_NO" WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="BIND_PALLET_TYPE" WIDTH="120"></GridColumn>
+      </GridColumns>
+    </MainGrid>
+    <MainDetail>
+      <ParamFields>
+        <ParamField FieldName="LOC_NO" ></ParamField>
+        <ParamField FieldName="LOC_PLC_NO" ></ParamField>
+        <ParamField FieldName="LOC_TYPE_NO" ></ParamField>
+        <ParamField FieldName="LOC_NAME" ></ParamField>
+        <ParamField FieldName="LOC_INDEX" ></ParamField>
+        <ParamField FieldName="MAX_BUFFER" ></ParamField>
+        <ParamField FieldName="LOC_GROUP_NO" ></ParamField>
+        <ParamField FieldName="LOC_PRIORITY" ></ParamField>
+        <ParamField FieldName="LOC_ENABLE" ></ParamField>
+        <ParamField FieldName="AREA_NO" ></ParamField>
+        <ParamField FieldName="TRANSFER_NO" ></ParamField>
+        <ParamField FieldName="LIMIT_CMD_QTY" ></ParamField>
+        <ParamField FieldName="WH_NO" ></ParamField>
+        <ParamField FieldName="LOC_MES_NO" ></ParamField>
+        <ParamField FieldName="LOC_AGV_NO" ></ParamField>
+        <ParamField FieldName="BPALLET_REQUEST" ></ParamField>
+        <ParamField FieldName="BIND_ELOC_NO" ></ParamField>
+        <ParamField FieldName="LOCK_REQUEST_LOC" ></ParamField>
+        <ParamField FieldName="PAREA_NO" ></ParamField>
+        <ParamField FieldName="BIND_PALLET_TYPE" ></ParamField>
+      </ParamFields>
+    </MainDetail>
+  </Select>
+</UiConfig>

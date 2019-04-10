@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.Frame.DbCI.McUIService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="Select@SearchMaterData" parameterClass="map" resultClass="row">
+      <![CDATA[        
+    SELECT TOP 1000 [MATER_NO]
+      ,[MATER_NAME]
+     
+      ,[PACKAGE_TYPE]
+   
+  FROM [JYM_DBS].[dbo].[PSB_MATERIAL] t
+      ]]>
+      <dynamic prepend="">
+        <isNotNull property="where.MATER_NO" prepend="AND">
+          <![CDATA[t.MATER_NO like '%'+ #where.MATER_NO#+'%']]>
+        </isNotNull>
+      </dynamic>
+      ORDER BY T.MATER_NO
+    </select>
+  </statements>
+</sqlMap>

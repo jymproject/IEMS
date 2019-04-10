@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbRI.PsbProductService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+   <alias>
+     <typeAlias alias="PsbProduct" type="IEMS.JHWMS.Entity.PsbProduct, IEMS.JHWMS.Entity" />
+   </alias>
+   
+  <!--结果集映射 resultMap-->
+  <resultMap id="R_PsbProduct" class="PsbProduct">
+    <result property="ProductGuid" column="PRODUCT_GUID"/>
+    <result property="ProductDate" column="PRODUCT_DATE"/>
+    <result property="ProductQty" column="PRODUCT_QTY"/>
+    <result property="BatchNo" column="BATCH_NO"/>
+    <result property="MaterNo" column="MATER_NO"/>
+    <result property="ShiftId" column="SHIFT_ID"/>
+    <result property="CreationTime" column="CREATION_TIME"/>
+    <result property="ProductEquipNo" column="PRODUCT_EQUIP_NO"/>
+    <result property="PalletNo" column="PALLET_NO"/>
+    <result property="BindOrderNo" column="BIND_ORDER_NO"/>
+  </resultMap>
+  <!--参数集映射 parameterMap-->
+  <parameterMap id="P_PsbProduct" class="PsbProduct">
+    <parameter property="ProductGuid" column="ProductGuid"/>
+    <parameter property="ProductDate" column="ProductDate"/>
+    <parameter property="ProductQty" column="ProductQty"/>
+    <parameter property="BatchNo" column="BatchNo"/>
+    <parameter property="MaterNo" column="MaterNo"/>
+    <parameter property="ShiftId" column="ShiftId"/>
+    <parameter property="CreationTime" column="CreationTime"/>
+    <parameter property="ProductEquipNo" column="ProductEquipNo"/>
+    <parameter property="PalletNo" column="PalletNo"/>
+    <parameter property="BindOrderNo" column="BindOrderNo"/>
+  </parameterMap>
+
+   <!--本文件为自动生成，不允许进行修改-->
+   <statements>
+    <!--查询数据-->
+    <sql id="includeSelect">
+      <![CDATA[SELECT * FROM PSB_PRODUCT ]]>
+    </sql>
+    <!--查询条件-->
+    <sql id="includeWhere">
+	  <dynamic prepend="WHERE">
+        <isNotNull property="where.ProductGuid" prepend="AND">
+          <isEqual property="where.ProductGuid" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PRODUCT_GUID IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ProductGuid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_GUID IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ProductGuid" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.ProductGuid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_GUID = #where.ProductGuid#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ProductDate" prepend="AND">
+          <isEqual property="where.ProductDate" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PRODUCT_DATE IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ProductDate" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_DATE IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ProductDate" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.ProductDate" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_DATE = #where.ProductDate#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ProductQty" prepend="AND">
+          <isEqual property="where.ProductQty" compareValue="-1147483648">
+            <![CDATA[PRODUCT_QTY IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ProductQty" compareValue="-1147483647">
+            <![CDATA[PRODUCT_QTY IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ProductQty" compareValue="-1147483648">
+          <isNotEqual property="where.ProductQty" compareValue="-1147483647">
+            <![CDATA[PRODUCT_QTY = #where.ProductQty#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.BatchNo" prepend="AND">
+          <isEqual property="where.BatchNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[BATCH_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.BatchNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[BATCH_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.BatchNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.BatchNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[BATCH_NO = #where.BatchNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.MaterNo" prepend="AND">
+          <isEqual property="where.MaterNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[MATER_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.MaterNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[MATER_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.MaterNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.MaterNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[MATER_NO = #where.MaterNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ShiftId" prepend="AND">
+          <isEqual property="where.ShiftId" compareValue="STRING_NULL_VALUE">
+            <![CDATA[SHIFT_ID IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ShiftId" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[SHIFT_ID IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ShiftId" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.ShiftId" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[SHIFT_ID = #where.ShiftId#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.CreationTime" prepend="AND">
+          <isEqual property="where.CreationTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[CREATION_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.CreationTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[CREATION_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.CreationTime" compareValue="1234/12/23 0:00:00">
+          <isNotEqual property="where.CreationTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[CREATION_TIME = #where.CreationTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.ProductEquipNo" prepend="AND">
+          <isEqual property="where.ProductEquipNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PRODUCT_EQUIP_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.ProductEquipNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_EQUIP_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.ProductEquipNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.ProductEquipNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PRODUCT_EQUIP_NO = #where.ProductEquipNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.PalletNo" prepend="AND">
+          <isEqual property="where.PalletNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PALLET_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.PalletNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PALLET_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.PalletNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.PalletNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PALLET_NO = #where.PalletNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.BindOrderNo" prepend="AND">
+          <isEqual property="where.BindOrderNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[BIND_ORDER_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.BindOrderNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[BIND_ORDER_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.BindOrderNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.BindOrderNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[BIND_ORDER_NO = #where.BindOrderNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--排序条件-->
+    <sql id="includeOrderString">
+      <isNotNull property="OrderString" prepend=" ">
+        ORDER BY $OrderString$
+      </isNotNull>
+    </sql>
+    <!--添加数据-->
+   <sql id="includeInsert">
+      <![CDATA[INSERT INTO PSB_PRODUCT]]>
+       <dynamic prepend="(">
+        <isNotNull property="ProductGuid" prepend=",">PRODUCT_GUID</isNotNull>
+        <isNotNull property="ProductDate" prepend=",">PRODUCT_DATE</isNotNull>
+        <isNotNull property="ProductQty" prepend=",">PRODUCT_QTY</isNotNull>
+        <isNotNull property="BatchNo" prepend=",">BATCH_NO</isNotNull>
+        <isNotNull property="MaterNo" prepend=",">MATER_NO</isNotNull>
+        <isNotNull property="ShiftId" prepend=",">SHIFT_ID</isNotNull>
+        <isNotNull property="CreationTime" prepend=",">CREATION_TIME</isNotNull>
+        <isNotNull property="ProductEquipNo" prepend=",">PRODUCT_EQUIP_NO</isNotNull>
+        <isNotNull property="PalletNo" prepend=",">PALLET_NO</isNotNull>
+        <isNotNull property="BindOrderNo" prepend=",">BIND_ORDER_NO</isNotNull>
+       </dynamic>
+       <dynamic prepend=") VALUES (">
+        <isNotNull property="ProductGuid" prepend=",">#ProductGuid#</isNotNull>
+        <isNotNull property="ProductDate" prepend=",">#ProductDate#</isNotNull>
+        <isNotNull property="ProductQty" prepend=",">#ProductQty#</isNotNull>
+        <isNotNull property="BatchNo" prepend=",">#BatchNo#</isNotNull>
+        <isNotNull property="MaterNo" prepend=",">#MaterNo#</isNotNull>
+        <isNotNull property="ShiftId" prepend=",">#ShiftId#</isNotNull>
+        <isNotNull property="CreationTime" prepend=",">#CreationTime#</isNotNull>
+        <isNotNull property="ProductEquipNo" prepend=",">#ProductEquipNo#</isNotNull>
+        <isNotNull property="PalletNo" prepend=",">#PalletNo#</isNotNull>
+        <isNotNull property="BindOrderNo" prepend=",">#BindOrderNo#</isNotNull>
+       </dynamic>
+       <![CDATA[)]]>
+    </sql>
+    <!--修改数据-->
+    <sql id="includeUpdate">
+      <![CDATA[UPDATE PSB_PRODUCT]]>
+       <dynamic prepend="SET">
+        <isNotNull property="update.ProductDate" prepend=",">
+          <isEqual property="update.ProductDate" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PRODUCT_DATE = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ProductDate" compareValue="STRING_NULL_VALUE">
+          <![CDATA[PRODUCT_DATE = #update.ProductDate#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.ProductQty" prepend=",">
+          <isEqual property="update.ProductQty" compareValue="-1147483648">
+            <![CDATA[PRODUCT_QTY = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ProductQty" compareValue="-1147483648">
+          <![CDATA[PRODUCT_QTY = #update.ProductQty#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.BatchNo" prepend=",">
+          <isEqual property="update.BatchNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[BATCH_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.BatchNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[BATCH_NO = #update.BatchNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.MaterNo" prepend=",">
+          <isEqual property="update.MaterNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[MATER_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.MaterNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[MATER_NO = #update.MaterNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.ShiftId" prepend=",">
+          <isEqual property="update.ShiftId" compareValue="STRING_NULL_VALUE">
+            <![CDATA[SHIFT_ID = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ShiftId" compareValue="STRING_NULL_VALUE">
+          <![CDATA[SHIFT_ID = #update.ShiftId#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.CreationTime" prepend=",">
+          <isEqual property="update.CreationTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[CREATION_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.CreationTime" compareValue="1234/12/23 0:00:00">
+          <![CDATA[CREATION_TIME = #update.CreationTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.ProductEquipNo" prepend=",">
+          <isEqual property="update.ProductEquipNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PRODUCT_EQUIP_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.ProductEquipNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[PRODUCT_EQUIP_NO = #update.ProductEquipNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.PalletNo" prepend=",">
+          <isEqual property="update.PalletNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PALLET_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.PalletNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[PALLET_NO = #update.PalletNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.BindOrderNo" prepend=",">
+          <isEqual property="update.BindOrderNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[BIND_ORDER_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.BindOrderNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[BIND_ORDER_NO = #update.BindOrderNo#]]>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--删除数据-->
+    <sql id="includeDelete">
+      <![CDATA[DELETE FROM PSB_PRODUCT]]>
+    </sql>
+
+	
+    <!--增删改查配置信息-->
+    <!--指定条件的查询-->
+    <select id="GetEntityList" parameterClass="map" resultMap="R_PsbProduct">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--指定条件的查询-->
+    <select id="GetEntityTable" parameterClass="map" resultClass="row">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--获取某个属性（数据列）的最大值-->
+    <select id="GetColumnMaxValue" parameterClass="map" resultClass="map">
+      <![CDATA[SELECT]]>
+      <isPropertyAvailable property="ColumnName" prepend=" ">
+      <![CDATA[MAX($ColumnName$)]]>
+      </isPropertyAvailable>
+      <![CDATA[FROM PSB_PRODUCT]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--获取数据条数-->
+    <select id="GetRowCount" parameterClass="map" resultClass="int">
+      <![CDATA[SELECT COUNT(*) FROM PSB_PRODUCT]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--添加新记录-->
+    <statement id="Insert" parameterMap="P_PsbProduct" resultClass="int">
+      <include refid="includeInsert"/>
+    </statement>
+    <!--更新记录-->
+    <update id="Update" parameterClass="map">
+      <include refid="includeUpdate"/>
+      <include refid="includeWhere"/>
+    </update>
+    <!--删除对象对应的记录-->
+    <delete id="Delete" parameterClass="map">
+      <include refid="includeDelete"/>
+      <include refid="includeWhere"/>
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbCI.ProductEnterService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<statements>
+  <select id="GetProductEnterData" parameterClass="map" resultClass="Row">
+    <![CDATA[
+ SELECT  [OBJID]
+      ,[ERR_CODE]
+      ,[ERR_DESC]
+      ,[PROC_STATUS]
+      ,[PROC_CREATE_TIME]
+      ,[PROC_EXCUTE_TIME]
+      ,[PROC_FINISH_TIME]
+      ,[SLMS_FLAG]
+      ,[UPDATE_DATE]
+      ,[BATCH_NO]
+      ,[BIN_AREA]
+      ,[READ_USER_ID]
+      ,[DeleteFlag]
+      ,[TASK_NO]
+      ,[CMD_OBJID]
+  FROM [JYM_1_PK].[dbo].[TPROC_0201_INTO_WAREHOUSE] t  where  DeleteFlag = 0
+        ]]>
+    <dynamic prepend="">
+      <isNotNull property="where.BIN_AREA" prepend="AND">
+        <![CDATA[ t.BIN_AREA = #where.BIN_AREA#]]>
+      </isNotNull>
+      <isNotNull property="where.BATCH_NO" prepend="AND">
+        <![CDATA[ t.BATCH_NO like '%'+#where.BATCH_NO#+'%']]>
+      </isNotNull>
+    </dynamic>
+    <isNotNull property="OrderString" prepend=" ">
+      ORDER BY $OrderString$
+    </isNotNull>
+  </select>
+
+
+  <select id="GetBatchNoData" parameterClass="map" resultClass="Row">
+    <![CDATA[
+SELECT 
+	  t1.BATCH_NO
+
+  FROM [WBS_BIN_CACHE] t join WBS_PACKAGE_DATA t1 on t.PACKAGE_GUID = t1.PACKAGE_GUID
+        ]]>
+    <!--<dynamic prepend="">
+      <isNotNull property="where.BIN_AREA" prepend="AND">
+        <![CDATA[ t.BIN_AREA = #where.BIN_AREA#]]>
+      </isNotNull>
+      <isNotNull property="where.BATCH_NO" prepend="AND">
+        <![CDATA[ t.BATCH_NO like '%'+#where.BATCH_NO#+'%']]>
+      </isNotNull>
+    </dynamic>
+    <isNotNull property="OrderString" prepend=" ">
+      ORDER BY $OrderString$
+    </isNotNull>-->
+  </select>
+  
+  
+  <!--<select id="GetCrnForkErrorStatus" parameterClass="map" resultClass="Row">
+    <![CDATA[
+        SELECT FS.CRN_NO,
+              FS.CRN_FORK_NO,
+              FS.TASK_NO,
+              CASE FS.TASK_TYPE WHEN 'I' THEN '入库' WHEN 'M' THEN '移库' ELSE '出库' END AS TASK_TYPE,
+                CASE WHEN T2.ERR_NAME IS NULL THEN '正常' ELSE T2.ERR_NAME END AS FAULT_NAME,
+              FS.FROM_BIN,FS.TO_BIN,
+			  FS.ACTPOSX,FS.ACTPOSY,
+              FS.FIP_FAULT_NO,
+              FS.FIP_DATE,
+              FS.FIP_HANDLE_RESULT,
+              CASE FS.FIP_FLAG WHEN 0 THEN '正常' WHEN 1 THEN '待确认' WHEN 2 THEN '已确认' WHEN 3 THEN '已处理' END AS FIP_FLAG
+        FROM PEM_CRN_FORK_STATUS FS 
+        LEFT JOIN PSB_CRN_ERR T2 ON FS.FAULTNO = T2.ERR_NO
+       ORDER BY FS.CRN_NO,FS.CRN_FORK_NO
+      ]]>
+  </select>-->
+  <!--<procedure id="pack_3010_system_operation" parameterClass = "map" resultClass="string">
+    pack_3010_system_operation.manual_task
+    @{ILocNo, column=I_LOC_NO}
+    @{IPalletNo, column=I_PALLET_NO}
+  </procedure>-->
+  </statements>
+</sqlMap>

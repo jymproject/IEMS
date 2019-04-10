@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UiConfig>
+  <Captions>
+    <Caption Name="GUID" Value="主键" ></Caption>
+    <!--<Caption Name="PACKAGE_GUID" Value="数据包主键" ></Caption>-->
+    <Caption Name="BIN_NO" Value="库位号" ></Caption>
+    <Caption Name="CREATE_DATE" Value="创建日期" ></Caption>
+    <Caption Name="MATER_NO" Value="物料编码" ></Caption>
+    <Caption Name="MATER_NAME" Value="物料名称" ></Caption>
+    <Caption Name="PALLET_NO" Value="工装号" ></Caption>
+    <Caption Name="BATCH_NO" Value="批次号" ></Caption>
+    <Caption Name="PRODUCT_QTY" Value="生产数量" ></Caption>
+    <Caption Name="PRODUCT_DATE" Value="生产日期" ></Caption>
+    <Caption Name="MEMO" Value="备注" ></Caption>
+    <Caption Name="CURR_STATUS" Value="当前质检状态" ></Caption>
+    <Caption Name="HANDLE_STATUS" Value="操作质检状态" ></Caption>
+    <Caption Name="HANDLE_DATE" Value="质检日期" ></Caption>
+    <Caption Name="BTIME"               Value="开始日期"></Caption>
+    <Caption Name="ETIME"               Value="结束日期"></Caption>
+  </Captions>
+  <WebPage Title="Z40_CHECK_LOG">
+  </WebPage>
+  <Select>
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="MATER_NO"></ParamField>
+        <ParamField FieldName="PALLET_NO"></ParamField>
+        <ParamField FieldName="BATCH_NO"></ParamField>
+        <ParamField FieldName="BTIME" Type="DateBox" DefaultValue="-5"></ParamField>
+        <ParamField FieldName="ETIME" Type="DateBox" DefaultValue="0"></ParamField>
+      </ParamFields>
+    </ParamPanel>
+    <MainGrid>
+      <GridColumns>
+        <GridColumn ColumnName="GUID" ></GridColumn>
+        <!--<GridColumn ColumnName="PACKAGE_GUID" ></GridColumn>-->
+        <GridColumn ColumnName="BIN_NO" ></GridColumn>
+        <GridColumn ColumnName="CREATE_DATE" Width="140" ColumnType="Date" ColumnFormt="yyyy-MM-dd hh:mm:ss"></GridColumn>
+        <GridColumn ColumnName="MATER_NO" ></GridColumn>
+        <GridColumn ColumnName="MATER_NAME" ></GridColumn>
+        <GridColumn ColumnName="PALLET_NO" ></GridColumn>
+        <GridColumn ColumnName="BATCH_NO" ></GridColumn>
+        <GridColumn ColumnName="PRODUCT_QTY" ></GridColumn>
+        <GridColumn ColumnName="PRODUCT_DATE" ></GridColumn>
+        <GridColumn ColumnName="MEMO" ></GridColumn>
+        <GridColumn ColumnName="CURR_STATUS" ></GridColumn>
+        <GridColumn ColumnName="HANDLE_STATUS" ></GridColumn>
+        <GridColumn ColumnName="HANDLE_DATE" Width="140" ColumnType="Date" ColumnFormt="yyyy-MM-dd hh:mm:ss"></GridColumn>
+      </GridColumns>
+    </MainGrid>
+    <MainDetail>
+      <ParamFields>
+        <ParamField FieldName="GUID" ></ParamField>
+        <!--<ParamField FieldName="PACKAGE_GUID" ></ParamField>-->
+        <ParamField FieldName="BIN_NO" ></ParamField>
+        <ParamField FieldName="CREATE_DATE" ></ParamField>
+        <ParamField FieldName="MATER_NO" ></ParamField>
+        <ParamField FieldName="MATER_NAME" ></ParamField>
+        <ParamField FieldName="PALLET_NO" ></ParamField>
+        <ParamField FieldName="BATCH_NO" ></ParamField>
+        <ParamField FieldName="PRODUCT_QTY" ></ParamField>
+        <ParamField FieldName="PRODUCT_DATE" ></ParamField>
+        <ParamField FieldName="MEMO" ></ParamField>
+        <ParamField FieldName="CURR_STATUS" ></ParamField>
+        <ParamField FieldName="HANDLE_STATUS" ></ParamField>
+        <ParamField FieldName="HANDLE_DATE" ></ParamField>
+      </ParamFields>
+    </MainDetail>
+  </Select>
+</UiConfig>

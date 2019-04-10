@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UiConfig>
+  <Captions>
+    <Caption Name="area_no"           Value="库区编号" ></Caption>
+    <Caption Name="area_name"         Value="库区名称" ></Caption>
+  
+  </Captions>
+  <WebPage Title="库区信息维护">
+  </WebPage>
+  <Crud TableName="PSB_BIN_AREA">
+    <PrimaryKey FieldName="area_no" Identity="true"></PrimaryKey>
+    <DeleteFlag Value="DELETE_FLAG"></DeleteFlag>
+  </Crud>
+  <Insert UserField="RECORD_USER_ID" TimeField="RECORD_TIME">
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="area_no"          ></ParamField>
+        <ParamField FieldName="area_name"        Nullable="true"></ParamField>
+      
+      </ParamFields>
+    </ParamPanel>
+  </Insert>
+  <Update>
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="area_no"      Nullable="true"></ParamField>
+        <ParamField FieldName="area_name"    Nullable="true"></ParamField>
+      
+      </ParamFields>
+    </ParamPanel>
+  </Update>
+  
+  <Select>
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="area_no" WIDTH="120"></ParamField>
+      </ParamFields>
+    </ParamPanel>
+    <MainGrid PageSize ="50">
+      <GridColumns>
+        <GridColumn ColumnName="area_no"         WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="area_name"       WIDTH="120"></GridColumn>
+      
+      </GridColumns>
+    </MainGrid>
+    <MainDetail>
+      <ParamFields>
+        <ParamField FieldName="area_no"        ></ParamField>
+        <ParamField FieldName="area_name"      ></ParamField>
+      
+      </ParamFields>
+    </MainDetail>
+  </Select>
+</UiConfig>

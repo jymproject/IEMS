@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UiConfig>
+  <Captions>
+    <Caption Name="PRODUCT_GUID"      Value="产品GUID" ></Caption>
+    <Caption Name="PRODUCT_DATE"      Value="生产日期" ></Caption>
+    <Caption Name="PRODUCT_QTY"       Value="产品数量" ></Caption>
+    <Caption Name="BATCH_NO"          Value="批次号" ></Caption>
+    <Caption Name="MATER_NO"          Value="物料编号" ></Caption>
+    <Caption Name="SHIFT_ID"          Value="生产班组" ></Caption>
+    <Caption Name="PALLET_NO"         Value="工装号" ></Caption>
+    <Caption Name="BIND_ORDER_NO"     Value="绑定单号" ></Caption>
+    <Caption Name="PRODUCT_EQUIP_NO"  Value="生产设备编号" ></Caption>
+    <Caption Name="CREATION_TIME"     Value="创建时间" ></Caption>
+    <Caption Name="MEMO"              Value="备注"></Caption>
+    <Caption NAME="MADE_IN"           Value="生产厂家"></Caption>
+    <Caption Name="PRODUCT_LINE"      Value="生产线"></Caption>
+    <Caption Name="SUBPALLET_NO"      Value="子托盘号"></Caption>
+    <Caption Name="PACK_TARGET"       Value="包装要求"></Caption>
+    <Caption Name="TECHNIQUE_TARGET"  Value="技术要求"></Caption>
+    <Caption Name="WARRANTY_TIME"     Value="保质期"></Caption>
+    <Caption Name="PACK_PERSON"       Value="包装人员"></Caption>
+    <Caption Name="PRODUCT_FLAG"      Value="产品标识"></Caption>
+  </Captions>
+  <WebPage Title="产品信息查询">
+  </WebPage>
+  <Select>
+    <ParamPanel>
+      <ParamFields>
+        <ParamField FieldName="PALLET_NO"    WIDTH="120"></ParamField>
+        <ParamField FieldName="PRODUCT_GUID" WIDTH="120"></ParamField>
+      </ParamFields>
+    </ParamPanel>
+    <MainGrid PageSize ="50">
+      <GridColumns>
+        <GridColumn ColumnName="PRODUCT_GUID"    WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="PRODUCT_DATE"    WIDTH="160" ></GridColumn> <!--ColumnType="Date" ColumnFormt="yyyy-MM-dd HH:mm:ss"-->
+        <GridColumn ColumnName="PRODUCT_QTY"     WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="BATCH_NO"        WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="MATER_NO"        WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="SHIFT_ID"        WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="PALLET_NO"       WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="BIND_ORDER_NO"   WIDTH="120"></GridColumn>
+        <GridColumn ColumnName="PRODUCT_EQUIP_NO" WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="CREATION_TIME"   WIDTH="160" ColumnType="Date" ColumnFormt="yyyy-MM-dd HH:mm:ss"></GridColumn>
+        <GridColumn ColumnName="MEMO"             WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="MADE_IN"          WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="PRODUCT_LINE"     WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="SUBPALLET_NO"     WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="PACK_TARGET"       WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="TECHNIQUE_TARGET"  WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="WARRANTY_TIME"     WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="PACK_PERSON"       WIDTH="100"></GridColumn>
+        <GridColumn ColumnName="PRODUCT_FLAG"      WIDTH="100"></GridColumn>
+      </GridColumns>
+    </MainGrid>
+    <MainDetail>
+      <ParamFields>
+        <ParamField FieldName="PRODUCT_GUID"      ></ParamField>
+        <ParamField FieldName="PRODUCT_DATE"      ></ParamField>
+        <ParamField FieldName="PRODUCT_QTY"       ></ParamField>
+        <ParamField FieldName="BATCH_NO"          ></ParamField>
+        <ParamField FieldName="MATER_NO"          ></ParamField>
+        <ParamField FieldName="SHIFT_ID"          ></ParamField>
+        <ParamField FieldName="PALLET_NO"         ></ParamField>
+        <ParamField FieldName="BIND_ORDER_NO"     ></ParamField>
+        <ParamField FieldName="PRODUCT_EQUIP_NO"  ></ParamField>
+        <ParamField FieldName="CREATION_TIME"     ></ParamField>
+        <ParamField FieldName="MEMO"              ></ParamField>
+        <ParamField FieldName="MADE_IN"           ></ParamField>
+        <ParamField FieldName="PRODUCT_LINE"      ></ParamField>
+        <ParamField FieldName="SUBPALLET_NO"      ></ParamField>
+        <ParamField FieldName="PACK_TARGET"       ></ParamField>
+        <ParamField FieldName="TECHNIQUE_TARGET"  ></ParamField>
+        <ParamField FieldName="WARRANTY_TIME"     ></ParamField>
+        <ParamField FieldName="PACK_PERSON"       ></ParamField>
+        <ParamField FieldName="PRODUCT_FLAG"      ></ParamField>
+      </ParamFields>
+    </MainDetail>
+  </Select>
+</UiConfig>

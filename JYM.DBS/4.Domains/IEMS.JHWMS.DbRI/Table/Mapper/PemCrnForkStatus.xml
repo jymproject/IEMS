@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.JHWMS.DbRI.PemCrnForkStatusService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+   <alias>
+     <typeAlias alias="PemCrnForkStatus" type="IEMS.JHWMS.Entity.PemCrnForkStatus, IEMS.JHWMS.Entity" />
+   </alias>
+   
+  <!--结果集映射 resultMap-->
+  <resultMap id="R_PemCrnForkStatus" class="PemCrnForkStatus">
+    <result property="CrnForkNo" column="CRN_FORK_NO"/>
+    <result property="CrnNo" column="CRN_NO"/>
+    <result property="LastTaskType" column="LAST_TASK_TYPE"/>
+    <result property="TaskType" column="TASK_TYPE"/>
+    <result property="TaskNo" column="TASK_NO"/>
+    <result property="RetryCount" column="RETRY_COUNT"/>
+    <result property="RecordTime" column="RECORD_TIME"/>
+    <result property="FipFlag" column="FIP_FLAG"/>
+    <result property="FipDate" column="FIP_DATE"/>
+    <result property="FipHandleResult" column="FIP_HANDLE_RESULT"/>
+    <result property="FipFaultNo" column="FIP_FAULT_NO"/>
+    <result property="Deviceid" column="DeviceId"/>
+    <result property="Heartbeat" column="HeartBeat"/>
+    <result property="Operatemode" column="OperateMode"/>
+    <result property="Missionstate" column="MissionState"/>
+    <result property="Missiontype" column="MissionType"/>
+    <result property="Missionid" column="MissionId"/>
+    <result property="Palletid" column="PalletId"/>
+    <result property="Actposbay" column="ActPosBay"/>
+    <result property="Actposlevel" column="ActPosLevel"/>
+    <result property="Actposx" column="ActPosX"/>
+    <result property="Actposy" column="ActPosY"/>
+    <result property="Actposz" column="ActPosZ"/>
+    <result property="Actposzdeep" column="ActPosZDeep"/>
+    <result property="Actspeedx" column="ActSpeedX"/>
+    <result property="Actspeedy" column="ActSpeedY"/>
+    <result property="Actspeedz" column="ActSpeedZ"/>
+    <result property="Actspeedzdeep" column="ActSpeedZDeep"/>
+    <result property="Loadstatus" column="LoadStatus"/>
+    <result property="Faultno" column="FaultNo"/>
+    <result property="Nofunction" column="NoFunction"/>
+  </resultMap>
+  <!--参数集映射 parameterMap-->
+  <parameterMap id="P_PemCrnForkStatus" class="PemCrnForkStatus">
+    <parameter property="CrnForkNo" column="CrnForkNo"/>
+    <parameter property="CrnNo" column="CrnNo"/>
+    <parameter property="LastTaskType" column="LastTaskType"/>
+    <parameter property="TaskType" column="TaskType"/>
+    <parameter property="TaskNo" column="TaskNo"/>
+    <parameter property="RetryCount" column="RetryCount"/>
+    <parameter property="RecordTime" column="RecordTime"/>
+    <parameter property="FipFlag" column="FipFlag"/>
+    <parameter property="FipDate" column="FipDate"/>
+    <parameter property="FipHandleResult" column="FipHandleResult"/>
+    <parameter property="FipFaultNo" column="FipFaultNo"/>
+    <parameter property="Deviceid" column="Deviceid"/>
+    <parameter property="Heartbeat" column="Heartbeat"/>
+    <parameter property="Operatemode" column="Operatemode"/>
+    <parameter property="Missionstate" column="Missionstate"/>
+    <parameter property="Missiontype" column="Missiontype"/>
+    <parameter property="Missionid" column="Missionid"/>
+    <parameter property="Palletid" column="Palletid"/>
+    <parameter property="Actposbay" column="Actposbay"/>
+    <parameter property="Actposlevel" column="Actposlevel"/>
+    <parameter property="Actposx" column="Actposx"/>
+    <parameter property="Actposy" column="Actposy"/>
+    <parameter property="Actposz" column="Actposz"/>
+    <parameter property="Actposzdeep" column="Actposzdeep"/>
+    <parameter property="Actspeedx" column="Actspeedx"/>
+    <parameter property="Actspeedy" column="Actspeedy"/>
+    <parameter property="Actspeedz" column="Actspeedz"/>
+    <parameter property="Actspeedzdeep" column="Actspeedzdeep"/>
+    <parameter property="Loadstatus" column="Loadstatus"/>
+    <parameter property="Faultno" column="Faultno"/>
+    <parameter property="Nofunction" column="Nofunction"/>
+  </parameterMap>
+
+   <!--本文件为自动生成，不允许进行修改-->
+   <statements>
+    <!--查询数据-->
+    <sql id="includeSelect">
+      <![CDATA[SELECT * FROM PEM_CRN_FORK_STATUS ]]>
+    </sql>
+    <!--查询条件-->
+    <sql id="includeWhere">
+	  <dynamic prepend="WHERE">
+        <isNotNull property="where.CrnForkNo" prepend="AND">
+          <isEqual property="where.CrnForkNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[CRN_FORK_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.CrnForkNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[CRN_FORK_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.CrnForkNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.CrnForkNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[CRN_FORK_NO = #where.CrnForkNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.CrnNo" prepend="AND">
+          <isEqual property="where.CrnNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[CRN_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.CrnNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[CRN_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.CrnNo" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.CrnNo" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[CRN_NO = #where.CrnNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.LastTaskType" prepend="AND">
+          <isEqual property="where.LastTaskType" compareValue="STRING_NULL_VALUE">
+            <![CDATA[LAST_TASK_TYPE IS NULL]]>
+          </isEqual>
+          <isEqual property="where.LastTaskType" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[LAST_TASK_TYPE IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.LastTaskType" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.LastTaskType" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[LAST_TASK_TYPE = #where.LastTaskType#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.TaskType" prepend="AND">
+          <isEqual property="where.TaskType" compareValue="STRING_NULL_VALUE">
+            <![CDATA[TASK_TYPE IS NULL]]>
+          </isEqual>
+          <isEqual property="where.TaskType" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[TASK_TYPE IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.TaskType" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.TaskType" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[TASK_TYPE = #where.TaskType#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.TaskNo" prepend="AND">
+          <isEqual property="where.TaskNo" compareValue="-1147483648">
+            <![CDATA[TASK_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.TaskNo" compareValue="-1147483647">
+            <![CDATA[TASK_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.TaskNo" compareValue="-1147483648">
+          <isNotEqual property="where.TaskNo" compareValue="-1147483647">
+            <![CDATA[TASK_NO = #where.TaskNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.RetryCount" prepend="AND">
+          <isEqual property="where.RetryCount" compareValue="-1147483648">
+            <![CDATA[RETRY_COUNT IS NULL]]>
+          </isEqual>
+          <isEqual property="where.RetryCount" compareValue="-1147483647">
+            <![CDATA[RETRY_COUNT IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.RetryCount" compareValue="-1147483648">
+          <isNotEqual property="where.RetryCount" compareValue="-1147483647">
+            <![CDATA[RETRY_COUNT = #where.RetryCount#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.RecordTime" prepend="AND">
+          <isEqual property="where.RecordTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[RECORD_TIME IS NULL]]>
+          </isEqual>
+          <isEqual property="where.RecordTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[RECORD_TIME IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.RecordTime" compareValue="1234/12/23 0:00:00">
+          <isNotEqual property="where.RecordTime" compareValue="1234/12/24 0:00:00">
+            <![CDATA[RECORD_TIME = #where.RecordTime#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.FipFlag" prepend="AND">
+          <isEqual property="where.FipFlag" compareValue="-1147483648">
+            <![CDATA[FIP_FLAG IS NULL]]>
+          </isEqual>
+          <isEqual property="where.FipFlag" compareValue="-1147483647">
+            <![CDATA[FIP_FLAG IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.FipFlag" compareValue="-1147483648">
+          <isNotEqual property="where.FipFlag" compareValue="-1147483647">
+            <![CDATA[FIP_FLAG = #where.FipFlag#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.FipDate" prepend="AND">
+          <isEqual property="where.FipDate" compareValue="1234/12/23 0:00:00">
+            <![CDATA[FIP_DATE IS NULL]]>
+          </isEqual>
+          <isEqual property="where.FipDate" compareValue="1234/12/24 0:00:00">
+            <![CDATA[FIP_DATE IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.FipDate" compareValue="1234/12/23 0:00:00">
+          <isNotEqual property="where.FipDate" compareValue="1234/12/24 0:00:00">
+            <![CDATA[FIP_DATE = #where.FipDate#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.FipHandleResult" prepend="AND">
+          <isEqual property="where.FipHandleResult" compareValue="STRING_NULL_VALUE">
+            <![CDATA[FIP_HANDLE_RESULT IS NULL]]>
+          </isEqual>
+          <isEqual property="where.FipHandleResult" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[FIP_HANDLE_RESULT IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.FipHandleResult" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.FipHandleResult" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[FIP_HANDLE_RESULT = #where.FipHandleResult#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.FipFaultNo" prepend="AND">
+          <isEqual property="where.FipFaultNo" compareValue="-1147483648">
+            <![CDATA[FIP_FAULT_NO IS NULL]]>
+          </isEqual>
+          <isEqual property="where.FipFaultNo" compareValue="-1147483647">
+            <![CDATA[FIP_FAULT_NO IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.FipFaultNo" compareValue="-1147483648">
+          <isNotEqual property="where.FipFaultNo" compareValue="-1147483647">
+            <![CDATA[FIP_FAULT_NO = #where.FipFaultNo#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Deviceid" prepend="AND">
+          <isEqual property="where.Deviceid" compareValue="STRING_NULL_VALUE">
+            <![CDATA[DeviceId IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Deviceid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[DeviceId IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Deviceid" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.Deviceid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[DeviceId = #where.Deviceid#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Heartbeat" prepend="AND">
+          <isEqual property="where.Heartbeat" compareValue="-1147483648">
+            <![CDATA[HeartBeat IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Heartbeat" compareValue="-1147483647">
+            <![CDATA[HeartBeat IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Heartbeat" compareValue="-1147483648">
+          <isNotEqual property="where.Heartbeat" compareValue="-1147483647">
+            <![CDATA[HeartBeat = #where.Heartbeat#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Operatemode" prepend="AND">
+          <isEqual property="where.Operatemode" compareValue="-1147483648">
+            <![CDATA[OperateMode IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Operatemode" compareValue="-1147483647">
+            <![CDATA[OperateMode IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Operatemode" compareValue="-1147483648">
+          <isNotEqual property="where.Operatemode" compareValue="-1147483647">
+            <![CDATA[OperateMode = #where.Operatemode#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Missionstate" prepend="AND">
+          <isEqual property="where.Missionstate" compareValue="-1147483648">
+            <![CDATA[MissionState IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Missionstate" compareValue="-1147483647">
+            <![CDATA[MissionState IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Missionstate" compareValue="-1147483648">
+          <isNotEqual property="where.Missionstate" compareValue="-1147483647">
+            <![CDATA[MissionState = #where.Missionstate#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Missiontype" prepend="AND">
+          <isEqual property="where.Missiontype" compareValue="-1147483648">
+            <![CDATA[MissionType IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Missiontype" compareValue="-1147483647">
+            <![CDATA[MissionType IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Missiontype" compareValue="-1147483648">
+          <isNotEqual property="where.Missiontype" compareValue="-1147483647">
+            <![CDATA[MissionType = #where.Missiontype#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Missionid" prepend="AND">
+          <isEqual property="where.Missionid" compareValue="-1147483648">
+            <![CDATA[MissionId IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Missionid" compareValue="-1147483647">
+            <![CDATA[MissionId IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Missionid" compareValue="-1147483648">
+          <isNotEqual property="where.Missionid" compareValue="-1147483647">
+            <![CDATA[MissionId = #where.Missionid#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Palletid" prepend="AND">
+          <isEqual property="where.Palletid" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PalletId IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Palletid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PalletId IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Palletid" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.Palletid" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[PalletId = #where.Palletid#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposbay" prepend="AND">
+          <isEqual property="where.Actposbay" compareValue="-1147483648">
+            <![CDATA[ActPosBay IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposbay" compareValue="-1147483647">
+            <![CDATA[ActPosBay IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposbay" compareValue="-1147483648">
+          <isNotEqual property="where.Actposbay" compareValue="-1147483647">
+            <![CDATA[ActPosBay = #where.Actposbay#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposlevel" prepend="AND">
+          <isEqual property="where.Actposlevel" compareValue="-1147483648">
+            <![CDATA[ActPosLevel IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposlevel" compareValue="-1147483647">
+            <![CDATA[ActPosLevel IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposlevel" compareValue="-1147483648">
+          <isNotEqual property="where.Actposlevel" compareValue="-1147483647">
+            <![CDATA[ActPosLevel = #where.Actposlevel#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposx" prepend="AND">
+          <isEqual property="where.Actposx" compareValue="-1147483648">
+            <![CDATA[ActPosX IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposx" compareValue="-1147483647">
+            <![CDATA[ActPosX IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposx" compareValue="-1147483648">
+          <isNotEqual property="where.Actposx" compareValue="-1147483647">
+            <![CDATA[ActPosX = #where.Actposx#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposy" prepend="AND">
+          <isEqual property="where.Actposy" compareValue="-1147483648">
+            <![CDATA[ActPosY IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposy" compareValue="-1147483647">
+            <![CDATA[ActPosY IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposy" compareValue="-1147483648">
+          <isNotEqual property="where.Actposy" compareValue="-1147483647">
+            <![CDATA[ActPosY = #where.Actposy#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposz" prepend="AND">
+          <isEqual property="where.Actposz" compareValue="-1147483648">
+            <![CDATA[ActPosZ IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposz" compareValue="-1147483647">
+            <![CDATA[ActPosZ IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposz" compareValue="-1147483648">
+          <isNotEqual property="where.Actposz" compareValue="-1147483647">
+            <![CDATA[ActPosZ = #where.Actposz#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actposzdeep" prepend="AND">
+          <isEqual property="where.Actposzdeep" compareValue="-1147483648">
+            <![CDATA[ActPosZDeep IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actposzdeep" compareValue="-1147483647">
+            <![CDATA[ActPosZDeep IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actposzdeep" compareValue="-1147483648">
+          <isNotEqual property="where.Actposzdeep" compareValue="-1147483647">
+            <![CDATA[ActPosZDeep = #where.Actposzdeep#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actspeedx" prepend="AND">
+          <isEqual property="where.Actspeedx" compareValue="-1147483648">
+            <![CDATA[ActSpeedX IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actspeedx" compareValue="-1147483647">
+            <![CDATA[ActSpeedX IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actspeedx" compareValue="-1147483648">
+          <isNotEqual property="where.Actspeedx" compareValue="-1147483647">
+            <![CDATA[ActSpeedX = #where.Actspeedx#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actspeedy" prepend="AND">
+          <isEqual property="where.Actspeedy" compareValue="-1147483648">
+            <![CDATA[ActSpeedY IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actspeedy" compareValue="-1147483647">
+            <![CDATA[ActSpeedY IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actspeedy" compareValue="-1147483648">
+          <isNotEqual property="where.Actspeedy" compareValue="-1147483647">
+            <![CDATA[ActSpeedY = #where.Actspeedy#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actspeedz" prepend="AND">
+          <isEqual property="where.Actspeedz" compareValue="-1147483648">
+            <![CDATA[ActSpeedZ IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actspeedz" compareValue="-1147483647">
+            <![CDATA[ActSpeedZ IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actspeedz" compareValue="-1147483648">
+          <isNotEqual property="where.Actspeedz" compareValue="-1147483647">
+            <![CDATA[ActSpeedZ = #where.Actspeedz#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Actspeedzdeep" prepend="AND">
+          <isEqual property="where.Actspeedzdeep" compareValue="-1147483648">
+            <![CDATA[ActSpeedZDeep IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Actspeedzdeep" compareValue="-1147483647">
+            <![CDATA[ActSpeedZDeep IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Actspeedzdeep" compareValue="-1147483648">
+          <isNotEqual property="where.Actspeedzdeep" compareValue="-1147483647">
+            <![CDATA[ActSpeedZDeep = #where.Actspeedzdeep#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Loadstatus" prepend="AND">
+          <isEqual property="where.Loadstatus" compareValue="-1147483648">
+            <![CDATA[LoadStatus IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Loadstatus" compareValue="-1147483647">
+            <![CDATA[LoadStatus IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Loadstatus" compareValue="-1147483648">
+          <isNotEqual property="where.Loadstatus" compareValue="-1147483647">
+            <![CDATA[LoadStatus = #where.Loadstatus#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Faultno" prepend="AND">
+          <isEqual property="where.Faultno" compareValue="-1147483648">
+            <![CDATA[FaultNo IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Faultno" compareValue="-1147483647">
+            <![CDATA[FaultNo IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Faultno" compareValue="-1147483648">
+          <isNotEqual property="where.Faultno" compareValue="-1147483647">
+            <![CDATA[FaultNo = #where.Faultno#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="where.Nofunction" prepend="AND">
+          <isEqual property="where.Nofunction" compareValue="STRING_NULL_VALUE">
+            <![CDATA[NoFunction IS NULL]]>
+          </isEqual>
+          <isEqual property="where.Nofunction" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[NoFunction IS NOT NULL]]>
+          </isEqual>
+          <isNotEqual property="where.Nofunction" compareValue="STRING_NULL_VALUE">
+          <isNotEqual property="where.Nofunction" compareValue="STRING_NOT_NULL_VALUE">
+            <![CDATA[NoFunction = #where.Nofunction#]]>
+          </isNotEqual>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--排序条件-->
+    <sql id="includeOrderString">
+      <isNotNull property="OrderString" prepend=" ">
+        ORDER BY $OrderString$
+      </isNotNull>
+    </sql>
+    <!--添加数据-->
+   <sql id="includeInsert">
+      <![CDATA[INSERT INTO PEM_CRN_FORK_STATUS]]>
+       <dynamic prepend="(">
+        <isNotNull property="CrnForkNo" prepend=",">CRN_FORK_NO</isNotNull>
+        <isNotNull property="CrnNo" prepend=",">CRN_NO</isNotNull>
+        <isNotNull property="LastTaskType" prepend=",">LAST_TASK_TYPE</isNotNull>
+        <isNotNull property="TaskType" prepend=",">TASK_TYPE</isNotNull>
+        <isNotNull property="TaskNo" prepend=",">TASK_NO</isNotNull>
+        <isNotNull property="RetryCount" prepend=",">RETRY_COUNT</isNotNull>
+        <isNotNull property="RecordTime" prepend=",">RECORD_TIME</isNotNull>
+        <isNotNull property="FipFlag" prepend=",">FIP_FLAG</isNotNull>
+        <isNotNull property="FipDate" prepend=",">FIP_DATE</isNotNull>
+        <isNotNull property="FipHandleResult" prepend=",">FIP_HANDLE_RESULT</isNotNull>
+        <isNotNull property="FipFaultNo" prepend=",">FIP_FAULT_NO</isNotNull>
+        <isNotNull property="Deviceid" prepend=",">DeviceId</isNotNull>
+        <isNotNull property="Heartbeat" prepend=",">HeartBeat</isNotNull>
+        <isNotNull property="Operatemode" prepend=",">OperateMode</isNotNull>
+        <isNotNull property="Missionstate" prepend=",">MissionState</isNotNull>
+        <isNotNull property="Missiontype" prepend=",">MissionType</isNotNull>
+        <isNotNull property="Missionid" prepend=",">MissionId</isNotNull>
+        <isNotNull property="Palletid" prepend=",">PalletId</isNotNull>
+        <isNotNull property="Actposbay" prepend=",">ActPosBay</isNotNull>
+        <isNotNull property="Actposlevel" prepend=",">ActPosLevel</isNotNull>
+        <isNotNull property="Actposx" prepend=",">ActPosX</isNotNull>
+        <isNotNull property="Actposy" prepend=",">ActPosY</isNotNull>
+        <isNotNull property="Actposz" prepend=",">ActPosZ</isNotNull>
+        <isNotNull property="Actposzdeep" prepend=",">ActPosZDeep</isNotNull>
+        <isNotNull property="Actspeedx" prepend=",">ActSpeedX</isNotNull>
+        <isNotNull property="Actspeedy" prepend=",">ActSpeedY</isNotNull>
+        <isNotNull property="Actspeedz" prepend=",">ActSpeedZ</isNotNull>
+        <isNotNull property="Actspeedzdeep" prepend=",">ActSpeedZDeep</isNotNull>
+        <isNotNull property="Loadstatus" prepend=",">LoadStatus</isNotNull>
+        <isNotNull property="Faultno" prepend=",">FaultNo</isNotNull>
+        <isNotNull property="Nofunction" prepend=",">NoFunction</isNotNull>
+       </dynamic>
+       <dynamic prepend=") VALUES (">
+        <isNotNull property="CrnForkNo" prepend=",">#CrnForkNo#</isNotNull>
+        <isNotNull property="CrnNo" prepend=",">#CrnNo#</isNotNull>
+        <isNotNull property="LastTaskType" prepend=",">#LastTaskType#</isNotNull>
+        <isNotNull property="TaskType" prepend=",">#TaskType#</isNotNull>
+        <isNotNull property="TaskNo" prepend=",">#TaskNo#</isNotNull>
+        <isNotNull property="RetryCount" prepend=",">#RetryCount#</isNotNull>
+        <isNotNull property="RecordTime" prepend=",">#RecordTime#</isNotNull>
+        <isNotNull property="FipFlag" prepend=",">#FipFlag#</isNotNull>
+        <isNotNull property="FipDate" prepend=",">#FipDate#</isNotNull>
+        <isNotNull property="FipHandleResult" prepend=",">#FipHandleResult#</isNotNull>
+        <isNotNull property="FipFaultNo" prepend=",">#FipFaultNo#</isNotNull>
+        <isNotNull property="Deviceid" prepend=",">#Deviceid#</isNotNull>
+        <isNotNull property="Heartbeat" prepend=",">#Heartbeat#</isNotNull>
+        <isNotNull property="Operatemode" prepend=",">#Operatemode#</isNotNull>
+        <isNotNull property="Missionstate" prepend=",">#Missionstate#</isNotNull>
+        <isNotNull property="Missiontype" prepend=",">#Missiontype#</isNotNull>
+        <isNotNull property="Missionid" prepend=",">#Missionid#</isNotNull>
+        <isNotNull property="Palletid" prepend=",">#Palletid#</isNotNull>
+        <isNotNull property="Actposbay" prepend=",">#Actposbay#</isNotNull>
+        <isNotNull property="Actposlevel" prepend=",">#Actposlevel#</isNotNull>
+        <isNotNull property="Actposx" prepend=",">#Actposx#</isNotNull>
+        <isNotNull property="Actposy" prepend=",">#Actposy#</isNotNull>
+        <isNotNull property="Actposz" prepend=",">#Actposz#</isNotNull>
+        <isNotNull property="Actposzdeep" prepend=",">#Actposzdeep#</isNotNull>
+        <isNotNull property="Actspeedx" prepend=",">#Actspeedx#</isNotNull>
+        <isNotNull property="Actspeedy" prepend=",">#Actspeedy#</isNotNull>
+        <isNotNull property="Actspeedz" prepend=",">#Actspeedz#</isNotNull>
+        <isNotNull property="Actspeedzdeep" prepend=",">#Actspeedzdeep#</isNotNull>
+        <isNotNull property="Loadstatus" prepend=",">#Loadstatus#</isNotNull>
+        <isNotNull property="Faultno" prepend=",">#Faultno#</isNotNull>
+        <isNotNull property="Nofunction" prepend=",">#Nofunction#</isNotNull>
+       </dynamic>
+       <![CDATA[)]]>
+    </sql>
+    <!--修改数据-->
+    <sql id="includeUpdate">
+      <![CDATA[UPDATE PEM_CRN_FORK_STATUS]]>
+       <dynamic prepend="SET">
+        <isNotNull property="update.CrnNo" prepend=",">
+          <isEqual property="update.CrnNo" compareValue="STRING_NULL_VALUE">
+            <![CDATA[CRN_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.CrnNo" compareValue="STRING_NULL_VALUE">
+          <![CDATA[CRN_NO = #update.CrnNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.LastTaskType" prepend=",">
+          <isEqual property="update.LastTaskType" compareValue="STRING_NULL_VALUE">
+            <![CDATA[LAST_TASK_TYPE = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.LastTaskType" compareValue="STRING_NULL_VALUE">
+          <![CDATA[LAST_TASK_TYPE = #update.LastTaskType#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.TaskType" prepend=",">
+          <isEqual property="update.TaskType" compareValue="STRING_NULL_VALUE">
+            <![CDATA[TASK_TYPE = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.TaskType" compareValue="STRING_NULL_VALUE">
+          <![CDATA[TASK_TYPE = #update.TaskType#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.TaskNo" prepend=",">
+          <isEqual property="update.TaskNo" compareValue="-1147483648">
+            <![CDATA[TASK_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.TaskNo" compareValue="-1147483648">
+          <![CDATA[TASK_NO = #update.TaskNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.RetryCount" prepend=",">
+          <isEqual property="update.RetryCount" compareValue="-1147483648">
+            <![CDATA[RETRY_COUNT = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.RetryCount" compareValue="-1147483648">
+          <![CDATA[RETRY_COUNT = #update.RetryCount#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.RecordTime" prepend=",">
+          <isEqual property="update.RecordTime" compareValue="1234/12/23 0:00:00">
+            <![CDATA[RECORD_TIME = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.RecordTime" compareValue="1234/12/23 0:00:00">
+          <![CDATA[RECORD_TIME = #update.RecordTime#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.FipFlag" prepend=",">
+          <isEqual property="update.FipFlag" compareValue="-1147483648">
+            <![CDATA[FIP_FLAG = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.FipFlag" compareValue="-1147483648">
+          <![CDATA[FIP_FLAG = #update.FipFlag#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.FipDate" prepend=",">
+          <isEqual property="update.FipDate" compareValue="1234/12/23 0:00:00">
+            <![CDATA[FIP_DATE = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.FipDate" compareValue="1234/12/23 0:00:00">
+          <![CDATA[FIP_DATE = #update.FipDate#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.FipHandleResult" prepend=",">
+          <isEqual property="update.FipHandleResult" compareValue="STRING_NULL_VALUE">
+            <![CDATA[FIP_HANDLE_RESULT = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.FipHandleResult" compareValue="STRING_NULL_VALUE">
+          <![CDATA[FIP_HANDLE_RESULT = #update.FipHandleResult#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.FipFaultNo" prepend=",">
+          <isEqual property="update.FipFaultNo" compareValue="-1147483648">
+            <![CDATA[FIP_FAULT_NO = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.FipFaultNo" compareValue="-1147483648">
+          <![CDATA[FIP_FAULT_NO = #update.FipFaultNo#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Deviceid" prepend=",">
+          <isEqual property="update.Deviceid" compareValue="STRING_NULL_VALUE">
+            <![CDATA[DeviceId = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Deviceid" compareValue="STRING_NULL_VALUE">
+          <![CDATA[DeviceId = #update.Deviceid#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Heartbeat" prepend=",">
+          <isEqual property="update.Heartbeat" compareValue="-1147483648">
+            <![CDATA[HeartBeat = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Heartbeat" compareValue="-1147483648">
+          <![CDATA[HeartBeat = #update.Heartbeat#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Operatemode" prepend=",">
+          <isEqual property="update.Operatemode" compareValue="-1147483648">
+            <![CDATA[OperateMode = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Operatemode" compareValue="-1147483648">
+          <![CDATA[OperateMode = #update.Operatemode#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Missionstate" prepend=",">
+          <isEqual property="update.Missionstate" compareValue="-1147483648">
+            <![CDATA[MissionState = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Missionstate" compareValue="-1147483648">
+          <![CDATA[MissionState = #update.Missionstate#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Missiontype" prepend=",">
+          <isEqual property="update.Missiontype" compareValue="-1147483648">
+            <![CDATA[MissionType = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Missiontype" compareValue="-1147483648">
+          <![CDATA[MissionType = #update.Missiontype#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Missionid" prepend=",">
+          <isEqual property="update.Missionid" compareValue="-1147483648">
+            <![CDATA[MissionId = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Missionid" compareValue="-1147483648">
+          <![CDATA[MissionId = #update.Missionid#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Palletid" prepend=",">
+          <isEqual property="update.Palletid" compareValue="STRING_NULL_VALUE">
+            <![CDATA[PalletId = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Palletid" compareValue="STRING_NULL_VALUE">
+          <![CDATA[PalletId = #update.Palletid#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposbay" prepend=",">
+          <isEqual property="update.Actposbay" compareValue="-1147483648">
+            <![CDATA[ActPosBay = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposbay" compareValue="-1147483648">
+          <![CDATA[ActPosBay = #update.Actposbay#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposlevel" prepend=",">
+          <isEqual property="update.Actposlevel" compareValue="-1147483648">
+            <![CDATA[ActPosLevel = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposlevel" compareValue="-1147483648">
+          <![CDATA[ActPosLevel = #update.Actposlevel#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposx" prepend=",">
+          <isEqual property="update.Actposx" compareValue="-1147483648">
+            <![CDATA[ActPosX = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposx" compareValue="-1147483648">
+          <![CDATA[ActPosX = #update.Actposx#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposy" prepend=",">
+          <isEqual property="update.Actposy" compareValue="-1147483648">
+            <![CDATA[ActPosY = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposy" compareValue="-1147483648">
+          <![CDATA[ActPosY = #update.Actposy#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposz" prepend=",">
+          <isEqual property="update.Actposz" compareValue="-1147483648">
+            <![CDATA[ActPosZ = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposz" compareValue="-1147483648">
+          <![CDATA[ActPosZ = #update.Actposz#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actposzdeep" prepend=",">
+          <isEqual property="update.Actposzdeep" compareValue="-1147483648">
+            <![CDATA[ActPosZDeep = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actposzdeep" compareValue="-1147483648">
+          <![CDATA[ActPosZDeep = #update.Actposzdeep#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actspeedx" prepend=",">
+          <isEqual property="update.Actspeedx" compareValue="-1147483648">
+            <![CDATA[ActSpeedX = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actspeedx" compareValue="-1147483648">
+          <![CDATA[ActSpeedX = #update.Actspeedx#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actspeedy" prepend=",">
+          <isEqual property="update.Actspeedy" compareValue="-1147483648">
+            <![CDATA[ActSpeedY = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actspeedy" compareValue="-1147483648">
+          <![CDATA[ActSpeedY = #update.Actspeedy#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actspeedz" prepend=",">
+          <isEqual property="update.Actspeedz" compareValue="-1147483648">
+            <![CDATA[ActSpeedZ = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actspeedz" compareValue="-1147483648">
+          <![CDATA[ActSpeedZ = #update.Actspeedz#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Actspeedzdeep" prepend=",">
+          <isEqual property="update.Actspeedzdeep" compareValue="-1147483648">
+            <![CDATA[ActSpeedZDeep = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Actspeedzdeep" compareValue="-1147483648">
+          <![CDATA[ActSpeedZDeep = #update.Actspeedzdeep#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Loadstatus" prepend=",">
+          <isEqual property="update.Loadstatus" compareValue="-1147483648">
+            <![CDATA[LoadStatus = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Loadstatus" compareValue="-1147483648">
+          <![CDATA[LoadStatus = #update.Loadstatus#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Faultno" prepend=",">
+          <isEqual property="update.Faultno" compareValue="-1147483648">
+            <![CDATA[FaultNo = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Faultno" compareValue="-1147483648">
+          <![CDATA[FaultNo = #update.Faultno#]]>
+          </isNotEqual>
+        </isNotNull>
+        <isNotNull property="update.Nofunction" prepend=",">
+          <isEqual property="update.Nofunction" compareValue="STRING_NULL_VALUE">
+            <![CDATA[NoFunction = NULL]]>
+          </isEqual>
+          <isNotEqual property="update.Nofunction" compareValue="STRING_NULL_VALUE">
+          <![CDATA[NoFunction = #update.Nofunction#]]>
+          </isNotEqual>
+        </isNotNull>
+      </dynamic>
+    </sql>
+    <!--删除数据-->
+    <sql id="includeDelete">
+      <![CDATA[DELETE FROM PEM_CRN_FORK_STATUS]]>
+    </sql>
+
+	
+    <!--增删改查配置信息-->
+    <!--指定条件的查询-->
+    <select id="GetEntityList" parameterClass="map" resultMap="R_PemCrnForkStatus">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--指定条件的查询-->
+    <select id="GetEntityTable" parameterClass="map" resultClass="row">
+      <include refid="includeSelect"/>
+      <include refid="includeWhere"/>
+      <include refid="includeOrderString"/>
+    </select>
+    <!--获取某个属性（数据列）的最大值-->
+    <select id="GetColumnMaxValue" parameterClass="map" resultClass="map">
+      <![CDATA[SELECT]]>
+      <isPropertyAvailable property="ColumnName" prepend=" ">
+      <![CDATA[MAX($ColumnName$)]]>
+      </isPropertyAvailable>
+      <![CDATA[FROM PEM_CRN_FORK_STATUS]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--获取数据条数-->
+    <select id="GetRowCount" parameterClass="map" resultClass="int">
+      <![CDATA[SELECT COUNT(*) FROM PEM_CRN_FORK_STATUS]]>
+      <include refid="includeWhere"/>
+    </select>
+    <!--添加新记录-->
+    <statement id="Insert" parameterMap="P_PemCrnForkStatus" resultClass="int">
+      <include refid="includeInsert"/>
+    </statement>
+    <!--更新记录-->
+    <update id="Update" parameterClass="map">
+      <include refid="includeUpdate"/>
+      <include refid="includeWhere"/>
+    </update>
+    <!--删除对象对应的记录-->
+    <delete id="Delete" parameterClass="map">
+      <include refid="includeDelete"/>
+      <include refid="includeWhere"/>
+    </delete>
+  </statements>
+</sqlMap>

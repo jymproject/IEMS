@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<McUIConfig>
+  <McUI name="PsbMaterial" uri="@McUI\PsbMaterial.xml"/>
+  <McUI name="PsbProduct"  uri="@McUI\PsbProduct.xml"/>
+  <McUI name="PsbPallet"   uri="@McUI\PsbPallet.xml"/>
+  <McUI name="PsbLoc"      uri="@McUI\PsbLoc.xml"/>
+  <McUI name="BinArea"      uri="@McUI\BinArea.xml"/>
+</McUIConfig>

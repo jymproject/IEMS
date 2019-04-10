@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IEMS.Frame.DbCI.McUIService"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+   <statements>
+    <select id="Select@Z40CheckLog" parameterClass="map" resultClass="row">
+      <![CDATA[ 
+       SELECT [GUID]
+              ,[PACKAGE_GUID]
+              ,[BIN_NO]
+              ,[CREATE_DATE]
+              ,[MATER_NO]
+              ,[MATER_NAME]
+              ,[PALLET_NO]
+              ,[BATCH_NO]
+              ,[PRODUCT_QTY]
+              ,[PRODUCT_DATE]
+              ,[MEMO]
+              ,CASE [CURR_STATUS] WHEN '0' THEN '待检' WHEN '1' THEN '合格' ELSE '不合格' END [CURR_STATUS]
+              ,CASE [HANDLE_STATUS] WHEN '0' THEN '待检' WHEN '1' THEN '合格' ELSE '不合格' END [HANDLE_STATUS]
+              ,[HANDLE_DATE]
+          FROM [dbo].[Z40_CHECK_LOG] T1
+      ]]>
+      <dynamic prepend="WHERE">
+         <isNotNull property="where.GUID" prepend="AND">
+           T1.GUID LIKE '%'+#where.GUID#+'%'
+         </isNotNull>
+        <isNotNull property="where.MATER_NO" prepend="AND">
+          <![CDATA[ T1.MATER_NO LIKE '%'+#where.MATER_NO#+'%']]>
+        </isNotNull>
+        <isNotNull property="where.PALLET_NO" prepend="AND">
+          <![CDATA[ T1.PALLET_NO LIKE '%'+#where.PALLET_NO#+'%']]>
+        </isNotNull>
+        <isNotNull property="where.BATCH_NO" prepend="AND">
+          <![CDATA[ T1.BATCH_NO LIKE '%'+#where.BATCH_NO#+'%']]>
+        </isNotNull>
+        <isNotNull property="where.BTIME" prepend="AND">
+          <![CDATA[ T1.HANDLE_DATE >=#where.BTIME#  ]]>
+        </isNotNull>
+        <isNotNull property="where.ETIME" prepend="AND">
+          <![CDATA[ T1.HANDLE_DATE <= 1+#where.ETIME#  ]]>
+        </isNotNull>
+       </dynamic>
+       ORDER BY GUID
+     </select>
+     <select id="Select@Z40CheckLog@MainDetail" parameterClass="map" resultClass="row">
+       <![CDATA[ 
+       SELECT * FROM Z40_CHECK_LOG T1
+      ]]>
+       <dynamic prepend="WHERE">
+         <isNotNull property="where.GUID" prepend = "AND">
+           T1.GUID = #where.GUID#
+         </isNotNull>
+       </dynamic>
+     </select>
+  </statements>
+</sqlMap>
